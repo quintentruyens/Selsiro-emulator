@@ -114,7 +114,7 @@ ENV CC=${CC:-"gcc"}
 ENV CXX=${CXX:-"g++"}
 
 # Include project
-#ADD . /workspaces/cpp_starter_project
-#WORKDIR /workspaces/cpp_starter_project
+#ADD . /workspaces/selsiro_emulator
+#WORKDIR /workspaces/selsiro_emulator
 
 CMD ["/bin/bash"]

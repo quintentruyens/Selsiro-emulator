@@ -31,8 +31,8 @@ jobs:
           - ubuntu-20.04
         compiler:
           # you can specify the version after `-` like "llvm-15.0.6".
-          - llvm-15.0.6
-          - gcc-12
+          - llvm
+          - gcc
         generator:
           - "Ninja Multi-Config"
         build_type:
@@ -43,9 +43,9 @@ jobs:
         include:
           # Add appropriate variables for gcov version required. This will intentionally break
           # if you try to use a compiler that does not have gcov set
-          - compiler: gcc-12
+          - compiler: gcc
             gcov_executable: gcov
-          - compiler: llvm-15.0.6
+          - compiler: llvm
             gcov_executable: "llvm-cov gcov"
 
 

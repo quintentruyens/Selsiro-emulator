@@ -1,4 +1,4 @@
-name: ci
+name: ci-small
 on:
   push:
     tags:
@@ -30,7 +30,7 @@ jobs:
         os:
           - ubuntu-20.04
         compiler:
-          # you can specify the version after `-` like "llvm-13.0.0".
+          # you can specify the version after `-` like "llvm-15.0.0".
           - llvm-15.0.0
           - gcc-12
         generator:
@@ -43,7 +43,7 @@ jobs:
         include:
           # Add appropriate variables for gcov version required. This will intentionally break
           # if you try to use a compiler that does not have gcov set
-          - compiler: gcc-11
+          - compiler: gcc-12
             gcov_executable: gcov
           - compiler: llvm-15.0.0
             gcov_executable: "llvm-cov gcov"

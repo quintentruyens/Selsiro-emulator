@@ -9,7 +9,7 @@ LGTM Has to be set up manually after template is created:
 [![Language grade: C++](https://img.shields.io/lgtm/grade/cpp/github/quintentruyens/Selsiro-emulator)](https://lgtm.com/projects/g/quintentruyens/Selsiro-emulator/context:cpp)
 
 ## About Selsiro-emulator
-A emulation of a RISC-V computer in C++. Part of the Selsiro project.
+This is an emulation of a RISC-V computer in C++. Part of the Selsiro project.
 
 
 ## More Details

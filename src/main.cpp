@@ -1,22 +1,21 @@
+#include <CLI/CLI.hpp>
+#include <fmt/format.h>
+#include <spdlog/spdlog.h>
+
 #include <functional>
 #include <iostream>
 #include <optional>
 
-#include <CLI/CLI.hpp>
-#include <spdlog/spdlog.h>
-
-// This file will be generated automatically when you run the CMake configuration step.
-// It creates a namespace called `selsiro_emulator`.
-// You can modify the source template at `configured_files/config.hpp.in`.
+// This file will be generated automatically when you run the CMake
+// configuration step. It creates a namespace called `selsiro_emulator`. You can
+// modify the source template at `configured_files/config.hpp.in`.
 #include <internal_use_only/config.hpp>
 
-
-// NOLINTNEXTLINE(bugprone-exception-escape)
-int main(int argc, const char **argv)
-{
+int main(int argc, const char **argv) {
   try {
-    CLI::App app{ fmt::format(
-      "{} version {}", selsiro_emulator::cmake::project_name, selsiro_emulator::cmake::project_version) };
+    CLI::App app{fmt::format("{} version {}",
+                             selsiro_emulator::cmake::project_name,
+                             selsiro_emulator::cmake::project_version)};
 
     std::optional<std::string> message;
     app.add_option("-m,--message", message, "A message to print back out");

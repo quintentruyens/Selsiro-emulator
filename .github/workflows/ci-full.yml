@@ -9,7 +9,7 @@ env:
   CONAN_SYSREQUIRES_MODE: enabled
   CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
   CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
-  CLANG_TIDY_VERSION: "15.0.0"
+  CLANG_TIDY_VERSION: "15.0.6"
 
 jobs:
   Test:
@@ -29,8 +29,8 @@ jobs:
           - ubuntu-20.04
           - macos-11
         compiler:
-          # you can specify the version after `-` like "llvm-15.0.0".
-          - llvm-15.0.0
+          # you can specify the version after `-` like "llvm-15.0.6".
+          - llvm-15.0.6
           - gcc-12
         generator:
           - "Ninja Multi-Config"
@@ -46,14 +46,14 @@ jobs:
           - os: macos-11
             compiler: gcc-12
           - os: ubuntu-20.04
-            compiler: llvm-15.0.0
+            compiler: llvm-15.0.6
 
         include:
           # Add appropriate variables for gcov version required. This will intentionally break
           # if you try to use a compiler that does not have gcov set
           - compiler: gcc-12
             gcov_executable: gcov
-          - compiler: llvm-15.0.0
+          - compiler: llvm-15.0.6
             gcov_executable: "llvm-cov gcov"
 
           # Set up preferred package generators, for given build configurations

@@ -1,30 +1,36 @@
+# Created for Clang 15.0.0 (https://releases.llvm.org/15.0.0/tools/clang/tools/extra/docs/clang-tidy/checks/list.html)
 ---
 Checks: "*,
         -abseil-*,
         -altera-*,
         -android-*,
         -fuchsia-*,
-        -google-*,
-        -llvm*,
+        fuchsia-header-anon-namespaces,
+        fuchsia-multiple-inheritance,
+        fuchsia-virtual-inheritance,
+        -google-readability-todo,
+        -llvmlibc-*,
         -modernize-use-trailing-return-type,
-        -zircon-*,
-        -readability-else-after-return,
-        -readability-static-accessed-through-instance,
-        -readability-avoid-const-params-in-decls,
-        -cppcoreguidelines-non-private-member-variables-in-classes,
-        -misc-non-private-member-variables-in-classes,
 "
-WarningsAsErrors: ''
-HeaderFilterRegex: ''
-FormatStyle:     none
-
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*/include/Selsiro_emulator/.*'
+FormatStyle:     file
 CheckOptions:
-  - key: readability-identifier-length.IgnoredVariableNames
-    value: 'x|y|z'
-  - key: readability-identifier-length.IgnoredParameterNames
-    value: 'x|y|z'
-
-
-
-
-
+  - key:    bugprone-argument-comment.StrictMode
+    value:  'true'
+  - key:    bugprone-argument-comment.CommentBoolLiterals
+    value:  'true'
+  - key:    bugprone-argument-comment.CommentIntegerLiterals
+    value:  'true'
+  - key:    bugprone-argument-comment.CommentFloatLiterals
+    value:  'true'
+  - key:    bugprone-argument-comment.CommentNullPtrs
+    value:  'true'
+  - key:    bugprone-misplaced-widening-cast.CheckImplicitCasts
+    value:  'true'
+  - key:    modernize-deprecated-headers.CheckHeaderFile
+    value:  'true'
+  - key:    modernize-use-auto.MinTypeNameLength
+    value:  '0'
+  - key:    readability-inconsistent-declaration-parameter-name.Strict
+    value:  'true'

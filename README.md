@@ -5,7 +5,7 @@
 [![CodeQL](https://github.com/quintentruyens/Selsiro-emulator/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/quintentruyens/Selsiro-emulator/actions/workflows/codeql-analysis.yml)
 
 ## About Selsiro-emulator
-A emulation of a RISC-V computer in C++. Part of the Selsiro project.
+This is an emulation of a RISC-V computer in C++. Part of the Selsiro project.
 
 
 ## More Details

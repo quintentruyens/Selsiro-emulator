@@ -13,7 +13,7 @@ Checks: "*,
         -modernize-use-trailing-return-type,
 "
 WarningsAsErrors: '*'
-HeaderFilterRegex: '.*/include/Selsiro_emulator/.*'
+HeaderFilterRegex: '.*/include/(Selsiro_)?emulator/.*'
 FormatStyle:     file
 CheckOptions:
   - key:    bugprone-argument-comment.StrictMode
@@ -34,3 +34,5 @@ CheckOptions:
     value:  '0'
   - key:    readability-inconsistent-declaration-parameter-name.Strict
     value:  'true'
+  - key:    google-runtime-int.TypeSuffix
+    value:  '_t'

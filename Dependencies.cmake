@@ -41,7 +41,11 @@ function(Selsiro_emulator_setup_dependencies)
   endif()
 
   if(NOT TARGET tl::expected)
-    cpmaddpackage("gh:TartanLlama/expected@1.1.0")
+    cpmaddpackage(
+      NAME expected
+      GITHUB_REPOSITORY "TartanLlama/expected"
+      VERSION 1.1.0
+      OPTIONS "EXPECTED_BUILD_TESTS OFF")
   endif()
 
 endfunction()

@@ -2,7 +2,7 @@
 
 #include <catch2/catch_test_macros.hpp>
 
-TEST_CASE("RAM is zero initialized", "[computer][bus][ram]") {
+TEST_CASE("RAM is zero initialized", "[emulator][bus][ram]") {
   static constexpr selsiro_emulator::RAM<16, 24> ram{};
 
   STATIC_REQUIRE(ram.read_word(16) == 0);

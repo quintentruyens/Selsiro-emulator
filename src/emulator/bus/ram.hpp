@@ -14,7 +14,7 @@ class RAM {
 public:
   // TODO: transform to C++20 ranges once all compilers used fully support it
   template <std::input_iterator Iterator, std::sentinel_for<Iterator> Sentinel>
-  constexpr void fill(Iterator first, Sentinel last) {
+  constexpr void fill(Iterator first, Sentinel last) noexcept {
     // This can be a lot simpler using std::ranges::copy and std::views::take
     // but those are not fully implemented correctly in all of the compilers in
     // use.

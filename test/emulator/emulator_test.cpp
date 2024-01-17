@@ -2,6 +2,9 @@
 
 #include <catch2/catch_test_macros.hpp>
 
+#include <array>
+#include <cstdint>
+
 TEST_CASE("Emulator is initialized correctly", "[emulator]") {
   static constexpr std::array<selsiro_emulator::Word, 6> arr{
       1, 5, 7, 8, 0xFFFFFFFF, 584718};

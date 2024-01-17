@@ -6,6 +6,9 @@
 
 #include <tl/expected.hpp>
 
+#include <array>
+#include <iterator>
+
 namespace selsiro_emulator {
 template <Address StartAddr, Size NumBytes>
   requires((NumBytes % sizeof(Word) == 0) && (StartAddr % sizeof(Word) == 0))

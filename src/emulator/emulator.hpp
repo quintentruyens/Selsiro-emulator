@@ -6,6 +6,8 @@
 #include "registers.hpp"
 #include "util.hpp"
 
+#include <iterator>
+
 namespace selsiro_emulator {
 
 /**

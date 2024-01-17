@@ -5,7 +5,6 @@
 
 #include <bit>
 #include <limits>
-#include <optional>
 #include <type_traits>
 
 namespace selsiro_emulator {

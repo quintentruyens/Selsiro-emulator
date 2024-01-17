@@ -65,7 +65,8 @@ catch_discover_tests(
 set(CONSTEXPR_TEST_FILES constexpr_tests.cpp 
   emulator/bus/ram_test.cpp
   emulator/registers_test.cpp
-  emulator/instruction_test.cpp)
+  emulator/instruction_test.cpp
+  emulator/emulator_test.cpp)
 add_executable(constexpr_tests ${CONSTEXPR_TEST_FILES})
 target_link_libraries(
   constexpr_tests

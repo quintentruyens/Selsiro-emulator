@@ -29,12 +29,14 @@ add_test(NAME cli.has_help COMMAND intro --help)
 add_test(NAME cli.version_matches COMMAND intro --version)
 set_tests_properties(cli.version_matches PROPERTIES PASS_REGULAR_EXPRESSION "${PROJECT_VERSION}")
 
-add_executable(tests tests.cpp)
+add_executable(tests tests.cpp
+  emulator/emulator_test.cpp)
 target_link_libraries(
   tests
   PRIVATE Selsiro_emulator::Selsiro_emulator_warnings
           Selsiro_emulator::Selsiro_emulator_options
           Selsiro_emulator::sample_library
+          Selsiro_emulator::emulator
           Catch2::Catch2WithMain)
 
 if(WIN32 AND BUILD_SHARED_LIBS)
@@ -61,12 +63,17 @@ catch_discover_tests(
   .xml)
 
 # Add a file containing a set of constexpr tests
-add_executable(constexpr_tests constexpr_tests.cpp)
+set(CONSTEXPR_TEST_FILES constexpr_tests.cpp 
+  emulator/bus/ram_test.cpp
+  emulator/registers_test.cpp
+  emulator/instruction_test.cpp)
+add_executable(constexpr_tests ${CONSTEXPR_TEST_FILES})
 target_link_libraries(
   constexpr_tests
   PRIVATE Selsiro_emulator::Selsiro_emulator_warnings
           Selsiro_emulator::Selsiro_emulator_options
           Selsiro_emulator::sample_library
+          Selsiro_emulator::emulator
           Catch2::Catch2WithMain)
 
 catch_discover_tests(
@@ -84,12 +91,13 @@ catch_discover_tests(
 
 # Disable the constexpr portion of the test, and build again this allows us to have an executable that we can debug when
 # things go wrong with the constexpr testing
-add_executable(relaxed_constexpr_tests constexpr_tests.cpp)
+add_executable(relaxed_constexpr_tests ${CONSTEXPR_TEST_FILES})
 target_link_libraries(
   relaxed_constexpr_tests
   PRIVATE Selsiro_emulator::Selsiro_emulator_warnings
           Selsiro_emulator::Selsiro_emulator_options
           Selsiro_emulator::sample_library
+          Selsiro_emulator::emulator
           Catch2::Catch2WithMain)
 target_compile_definitions(relaxed_constexpr_tests PRIVATE -DCATCH_CONFIG_RUNTIME_STATIC_REQUIRE)
 

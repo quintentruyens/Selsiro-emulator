@@ -40,4 +40,12 @@ function(Selsiro_emulator_setup_dependencies)
     cpmaddpackage("gh:lefticus/tools#update_build_system")
   endif()
 
+  if(NOT TARGET tl::expected)
+    cpmaddpackage(
+      NAME expected
+      GITHUB_REPOSITORY "TartanLlama/expected"
+      VERSION 1.1.0
+      OPTIONS "EXPECTED_BUILD_TESTS OFF")
+  endif()
+
 endfunction()

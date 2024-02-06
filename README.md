@@ -1,6 +1,6 @@
 # Selsiro-emulator
 
-[![ci](https://github.com/quintentruyens/Selsiro-emulator/actions/workflows/ci.yml/badge.svg)](https://github.com/quintentruyens/Selsiro-emulator/actions/workflows/ci.yml)
+[![ci](https://github.com/quintentruyens/Selsiro-emulator/actions/workflows/ci-full.yml/badge.svg)](https://github.com/quintentruyens/Selsiro-emulator/actions/workflows/ci-full.yml)
 [![codecov](https://codecov.io/gh/quintentruyens/Selsiro-emulator/branch/main/graph/badge.svg)](https://codecov.io/gh/quintentruyens/Selsiro-emulator)
 [![CodeQL](https://github.com/quintentruyens/Selsiro-emulator/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/quintentruyens/Selsiro-emulator/actions/workflows/codeql-analysis.yml)
 

@@ -20,7 +20,7 @@ set_target_properties(
              CXX_VISIBILITY_PRESET hidden
              VISIBILITY_INLINES_HIDDEN YES)
 
-generate_export_header(sample_library EXPORT_FILE_NAME ${PROJECT_BINARY_DIR}/include/Selsiro_emulator/sample_library_export.hpp)
+generate_export_header(sample_library EXPORT_FILE_NAME ${PROJECT_BINARY_DIR}/include/Selsiro_emulator/sample_library_export.hpp INCLUDE_GUARD_NAME SELSIRO_EMULATOR_SAMPLE_LIBRARY_EXPORT_HPP)
 
 if(NOT BUILD_SHARED_LIBS)
   target_compile_definitions(sample_library PUBLIC SAMPLE_LIBRARY_STATIC_DEFINE)

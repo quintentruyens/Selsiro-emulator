@@ -1,0 +1,7 @@
+---
+InheritParentConfig: true
+# Magic numbers are very common in tests and expanded Catch2 macros can quickly increase the cognitive complexity
+Checks: "-readability-magic-numbers,
+         -cppcoreguidelines-avoid-magic-numbers,
+         -readability-function-cognitive-complexity,
+"

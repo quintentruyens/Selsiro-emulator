@@ -10,10 +10,11 @@ Checks: "*,
         fuchsia-virtual-inheritance,
         -google-readability-todo,
         -llvmlibc-*,
+        -llvm-header-guard,
         -modernize-use-trailing-return-type,
 "
 WarningsAsErrors: '*'
-HeaderFilterRegex: '.*/include/Selsiro_emulator/.*'
+HeaderFilterRegex: '.*/(include|src)/(Selsiro_)?emulator/.*'
 FormatStyle:     file
 CheckOptions:
   - key:    bugprone-argument-comment.StrictMode
@@ -34,3 +35,5 @@ CheckOptions:
     value:  '0'
   - key:    readability-inconsistent-declaration-parameter-name.Strict
     value:  'true'
+  - key:    google-runtime-int.TypeSuffix
+    value:  '_t'

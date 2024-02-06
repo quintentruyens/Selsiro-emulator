@@ -11,7 +11,7 @@ IncludeBlocks: Regroup
 IncludeCategories:
   - Regex:           '^".*\.hpp"$'
     Priority:        1
-  - Regex:           '^<(CLI|ftxui|lefticus/tools|catch2|spdlog|fmt)/.*>$'
+  - Regex:           '^<(CLI|ftxui|lefticus/tools|catch2|spdlog|fmt|tl)/.*>$'
     Priority:        2
   - Regex:           '^<[[:lower:]_]*>$'
     Priority:        3

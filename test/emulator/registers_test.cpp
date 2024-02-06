@@ -6,19 +6,19 @@ TEST_CASE("Registers are zero initialized", "[emulator][registers]") {
   static constexpr selsiro_emulator::Registers regs{};
 
   STATIC_REQUIRE(regs.read(0).has_value());
-  STATIC_REQUIRE(regs.read(0) == 0);
+  STATIC_REQUIRE(regs.read(0).value() == 0U);
 
   STATIC_REQUIRE(regs.read(1).has_value());
-  STATIC_REQUIRE(regs.read(1) == 0);
+  STATIC_REQUIRE(regs.read(1).value() == 0U);
 
   STATIC_REQUIRE(regs.read(5).has_value());
-  STATIC_REQUIRE(regs.read(5) == 0);
+  STATIC_REQUIRE(regs.read(5).value() == 0U);
 
   STATIC_REQUIRE(regs.read(17).has_value());
-  STATIC_REQUIRE(regs.read(17) == 0);
+  STATIC_REQUIRE(regs.read(17).value() == 0U);
 
   STATIC_REQUIRE(regs.read(31).has_value());
-  STATIC_REQUIRE(regs.read(31) == 0);
+  STATIC_REQUIRE(regs.read(31).value() == 0U);
 }
 
 TEST_CASE("Registers above 31 are inaccessible", "[emulator][registers]") {
@@ -43,7 +43,7 @@ TEST_CASE("Registers can be written", "[emulator][registers]") {
       written_registers(/*index=*/5, /*data=*/185904);
 
   STATIC_REQUIRE(regs.read(5).has_value());
-  STATIC_REQUIRE(regs.read(5) == 185904);
+  STATIC_REQUIRE(regs.read(5).value() == 185904U);
 }
 
 TEST_CASE("Register 0 cannot be overwritten", "[emulator][registers]") {
@@ -51,7 +51,7 @@ TEST_CASE("Register 0 cannot be overwritten", "[emulator][registers]") {
       written_registers(/*index=*/0, /*data=*/185904);
 
   STATIC_REQUIRE(regs.read(0).has_value());
-  STATIC_REQUIRE(regs.read(0) == 0);
+  STATIC_REQUIRE(regs.read(0).value() == 0U);
 }
 
 TEST_CASE("Register writes above 31 are ignored", "[emulator][registers]") {
@@ -59,17 +59,17 @@ TEST_CASE("Register writes above 31 are ignored", "[emulator][registers]") {
       written_registers(/*index=*/32, /*data=*/185904);
 
   STATIC_REQUIRE(regs.read(0).has_value());
-  STATIC_REQUIRE(regs.read(0) == 0);
+  STATIC_REQUIRE(regs.read(0).value() == 0U);
 
   STATIC_REQUIRE(regs.read(1).has_value());
-  STATIC_REQUIRE(regs.read(1) == 0);
+  STATIC_REQUIRE(regs.read(1).value() == 0U);
 
   STATIC_REQUIRE(regs.read(5).has_value());
-  STATIC_REQUIRE(regs.read(5) == 0);
+  STATIC_REQUIRE(regs.read(5).value() == 0U);
 
   STATIC_REQUIRE(regs.read(17).has_value());
-  STATIC_REQUIRE(regs.read(17) == 0);
+  STATIC_REQUIRE(regs.read(17).value() == 0U);
 
   STATIC_REQUIRE(regs.read(31).has_value());
-  STATIC_REQUIRE(regs.read(31) == 0);
+  STATIC_REQUIRE(regs.read(31).value() == 0U);
 }

@@ -6,6 +6,7 @@
 #include "registers.hpp"
 #include "util.hpp"
 
+#include <cassert>
 #include <iterator>
 
 namespace selsiro_emulator {
@@ -64,7 +65,7 @@ public:
     auto result = rs1.value_or(0) + instr.imm_i();
     m_registers.write(instr.rd(), result);
 
-    m_pc++;
+    m_pc += 4;
   }
 
 private:

@@ -7,12 +7,12 @@
 TEST_CASE("RAM is zero initialized", "[emulator][bus][ram]") {
   static constexpr selsiro_emulator::RAM<16, 24> ram{};
 
-  STATIC_REQUIRE(ram.read_word(16) == 0);
-  STATIC_REQUIRE(ram.read_word(20) == 0);
-  STATIC_REQUIRE(ram.read_word(24) == 0);
-  STATIC_REQUIRE(ram.read_word(28) == 0);
-  STATIC_REQUIRE(ram.read_word(32) == 0);
-  STATIC_REQUIRE(ram.read_word(36) == 0);
+  STATIC_REQUIRE(ram.read_word(16) == 0U);
+  STATIC_REQUIRE(ram.read_word(20) == 0U);
+  STATIC_REQUIRE(ram.read_word(24) == 0U);
+  STATIC_REQUIRE(ram.read_word(28) == 0U);
+  STATIC_REQUIRE(ram.read_word(32) == 0U);
+  STATIC_REQUIRE(ram.read_word(36) == 0U);
 }
 
 TEST_CASE("RAM is inaccessible outside of range", "[emulator][bus][ram]") {
@@ -77,12 +77,12 @@ TEST_CASE("RAM can be initialized", "[emulator][bus][ram]") {
       initialized_ram(std::array<selsiro_emulator::Word, 6>{1, 2, 3, 4, 5, 6});
 
   STATIC_REQUIRE_FALSE(ram.read_word(12).has_value());
-  STATIC_REQUIRE(ram.read_word(16) == 1);
-  STATIC_REQUIRE(ram.read_word(20) == 2);
-  STATIC_REQUIRE(ram.read_word(24) == 3);
-  STATIC_REQUIRE(ram.read_word(28) == 4);
-  STATIC_REQUIRE(ram.read_word(32) == 5);
-  STATIC_REQUIRE(ram.read_word(36) == 6);
+  STATIC_REQUIRE(ram.read_word(16) == 1U);
+  STATIC_REQUIRE(ram.read_word(20) == 2U);
+  STATIC_REQUIRE(ram.read_word(24) == 3U);
+  STATIC_REQUIRE(ram.read_word(28) == 4U);
+  STATIC_REQUIRE(ram.read_word(32) == 5U);
+  STATIC_REQUIRE(ram.read_word(36) == 6U);
   STATIC_REQUIRE_FALSE(ram.read_word(40).has_value());
 }
 
@@ -93,12 +93,12 @@ TEST_CASE("RAM can be initialized with an array that is too small",
 
   // First 3 addresses initialized, rest set to zero
   STATIC_REQUIRE_FALSE(ram.read_word(12).has_value());
-  STATIC_REQUIRE(ram.read_word(16) == 1);
-  STATIC_REQUIRE(ram.read_word(20) == 2);
-  STATIC_REQUIRE(ram.read_word(24) == 3);
-  STATIC_REQUIRE(ram.read_word(28) == 0);
-  STATIC_REQUIRE(ram.read_word(32) == 0);
-  STATIC_REQUIRE(ram.read_word(36) == 0);
+  STATIC_REQUIRE(ram.read_word(16) == 1U);
+  STATIC_REQUIRE(ram.read_word(20) == 2U);
+  STATIC_REQUIRE(ram.read_word(24) == 3U);
+  STATIC_REQUIRE(ram.read_word(28) == 0U);
+  STATIC_REQUIRE(ram.read_word(32) == 0U);
+  STATIC_REQUIRE(ram.read_word(36) == 0U);
   STATIC_REQUIRE_FALSE(ram.read_word(40).has_value());
 }
 
@@ -108,11 +108,11 @@ TEST_CASE("RAM can be initialized with an array that is too large",
       std::array<selsiro_emulator::Word, 9>{1, 2, 3, 4, 5, 6, 7, 8, 9});
 
   STATIC_REQUIRE_FALSE(ram.read_word(12).has_value());
-  STATIC_REQUIRE(ram.read_word(16) == 1);
-  STATIC_REQUIRE(ram.read_word(20) == 2);
-  STATIC_REQUIRE(ram.read_word(24) == 3);
-  STATIC_REQUIRE(ram.read_word(28) == 4);
-  STATIC_REQUIRE(ram.read_word(32) == 5);
-  STATIC_REQUIRE(ram.read_word(36) == 6);
+  STATIC_REQUIRE(ram.read_word(16) == 1U);
+  STATIC_REQUIRE(ram.read_word(20) == 2U);
+  STATIC_REQUIRE(ram.read_word(24) == 3U);
+  STATIC_REQUIRE(ram.read_word(28) == 4U);
+  STATIC_REQUIRE(ram.read_word(32) == 5U);
+  STATIC_REQUIRE(ram.read_word(36) == 6U);
   STATIC_REQUIRE_FALSE(ram.read_word(40).has_value());
 }

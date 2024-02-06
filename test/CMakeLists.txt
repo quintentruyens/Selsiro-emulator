@@ -29,7 +29,8 @@ add_test(NAME cli.has_help COMMAND intro --help)
 add_test(NAME cli.version_matches COMMAND intro --version)
 set_tests_properties(cli.version_matches PROPERTIES PASS_REGULAR_EXPRESSION "${PROJECT_VERSION}")
 
-add_executable(tests tests.cpp)
+add_executable(tests tests.cpp
+  emulator/emulator_test.cpp)
 target_link_libraries(
   tests
   PRIVATE Selsiro_emulator::Selsiro_emulator_warnings
@@ -65,8 +66,7 @@ catch_discover_tests(
 set(CONSTEXPR_TEST_FILES constexpr_tests.cpp 
   emulator/bus/ram_test.cpp
   emulator/registers_test.cpp
-  emulator/instruction_test.cpp
-  emulator/emulator_test.cpp)
+  emulator/instruction_test.cpp)
 add_executable(constexpr_tests ${CONSTEXPR_TEST_FILES})
 target_link_libraries(
   constexpr_tests
